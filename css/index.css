@@ -1,0 +1,209 @@
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.header{
+    height: 580px;
+    position: relative;
+}
+.wrap{
+    width: 100%;
+    height: 89px;
+    background: url(../img/nav-b.png) repeat-x;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 10;
+}
+.nav {
+
+    width: 100%;
+}
+.nav h1{
+    float: left;
+    margin-top: 18px;
+}
+.nav ul{
+    display: block;
+    height: 100%;
+    float:right;
+
+}
+.nav ul li{
+    display: block;
+    height: 100%;
+    float: left;
+}
+
+.nav ul li a{
+    position: relative;
+    z-index: 1;
+
+    display: block;
+    padding: 0 30px ;
+    color: rgba(255,255,255,0.8);
+    font-size: 18px;
+    line-height: 89px;
+}
+
+
+.nav ul li a span{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0 ,0 ,0.1);
+    z-index: -1;
+    opacity: 0;
+}
+.nav ul li a:hover{
+    color: white;
+}
+.nav ul li a:hover span{
+    -webkit-animation: move 0.5s 1 both;
+    animation: move 0.5s 1 both;
+    opacity: 1;
+}
+@keyframes move {
+    0%{
+        transform: scale(0,1);
+    }
+    100%{
+        transform: scale(1,1);
+    }
+}
+/* banner */
+.banner{
+    background: orangered;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.slideA{
+    width: 100%;
+    height: 100%;
+    background: #183e84;
+}
+.prev, .next{
+    width: 44px;
+    height: 44px;
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    z-index: 10;
+}
+.prev{
+    left: 70px;
+}
+.next{
+    right: 70px;
+}
+.slideA dl{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slideA dl dt{
+    position: absolute;
+    top: 0;
+    left: -40px;
+
+    -webkit-transform:translate(-50px);
+    transform: translate(-50px);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.slideA dl dd{
+    position: absolute;
+    left: 50%;
+    color: white;
+    font-size: 18px;
+
+    -webkit-transform:translate(-50px);
+    transform: translate(50px);
+    opacity: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+
+}
+.slideA dl dd.one{
+    width: 394px;
+    height: 162px;
+    top: 228px;
+}
+.slideA dl dd.other{
+    top: 415px;
+}
+.slideB{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #ff6a00;
+}
+.slideImg1,.slideImg2{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+.slideImg1{
+    top: 100px;
+
+    transform: translate(50px);
+    -webkit-transform: translate(50px);
+    opacity: 0;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.slideImg2{
+    bottom: 45px;
+
+    -webkit-transform: scale(0);
+    transform: scale(0);
+    opacity: 0;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+}
+.slideCur dl dt{
+    transform: translate(0px);
+    opacity: 1;
+    transition: 1s;
+}
+.slideCur dl dd{
+    transform: translate(0px);
+    opacity: 1;
+    transition: 1s;
+}
+.slideCur .slideImg1{
+    -webkit-transform: translate(50px);
+    transform: translate(0px);
+    opacity: 1;
+
+}
+.slideCur .slideImg2{
+    opacity: 1;
+    -webkit-transform:scale(1);
+    transform: scale(1);
+
+}
+
+
+.slideB{
+    display: none;
+}
+/* 媒体查询部分 */
+@media screen and (min-width: 1000px){/*窗口宽度大于1000时*/
+    .nav,.slideA dl{
+        width: 1000px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 768px){
+    .nav ul{
+        display: none;
+    }
+
+
+}

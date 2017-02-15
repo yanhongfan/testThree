@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>猎豹响应式页面</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="./css/reset.min.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+
+</head>
+<body>
+<div class="header">
+    <div class="wrap">
+        <div class="nav">
+            <h1><a href="###"><img src="./img/logo.png" alt=""/></a></h1>
+            <ul>
+                <li><a href="###"> 首页<span></span></a></li>
+                <li><a href="###"> 下载<span></span></a></li>
+                <li><a href="###"> 论坛 <span></span></a></li>
+                <li><a href="###"> International <span></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="banner">
+        <a href="##" class="prev" data-name="prev">
+            <img src="./img/l-btn.png"/>
+        </a>
+
+        <div class="slide slideA slideCur">
+            <dl>
+                <dt><img src="./img/bao-2.png"/></dt>
+                <dd class="one"><img src="./img/st-2.png"/></dd>
+                <dd class="other">全新chrome内核，内存占用低，轻巧炫酷皮肤</dd>
+            </dl>
+        </div>
+        <div class="slide slideB ">
+            <div class=" slideImg1">
+                <img src="./img/bao.png"/>
+            </div>
+            <div class="slideImg2">
+                <img src="./img/nt-1.png"/>
+            </div>
+        </div>
+        <a href="##" class="next" data-name="next">
+            <img src="./img/r-btn.png"/>
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    /* 不考虑兼容性，下面是HTML5的写法 */
+    var slides = document.querySelectorAll('.slide');
+    console.log(slides);
+    var prev = document.querySelector('.prev');
+    var next = document.querySelector('.next');
+
+     /* slides[0].classList.add('.slideCur');  /!*增加类名*!/
+     slides[0].classList.remove('.slideCur');  /!*移除类名*!/*/
+
+    var index=0;/* 记录初始显示的banner*/
+    prev.addEventListener("click", fn, false);
+    next.addEventListener('click', fn, false);
+    /* 处理切换的逻辑 */
+    function fn() {
+        [].forEach.call(slides, function (item, index) {
+            /*初始化*/
+            if (/slideCur/.test(item.className)) {
+                index = index;
+                /* 把当前显示的slide的索引保存下来 */
+            }
+            item.style.display = 'none';
+            item.classList.remove('slideCur');
+            /* 移出类名 */
+        });
+        /* 获取点击的当前元素自定义属性的值 */
+        var btn = this.dataset.name;
+        /*得到自定义属性的值*/
+        if (btn == 'prev') {
+            index = index == 0 ? slides.length - 1 : index - 1;
+        }
+        if (btn == 'next') {
+            index = index == slides.length - 1 ? 0 : index + 1;
+        }
+        slides[index].style.display = 'block';
+        window.setTimeout(function () {
+            slides[index].classList.add('slideCur');
+            /* 增加一个类名，有动画 */
+        }, 100);
+
+        /* display 和transition 属性一起设置，会让过渡动画失效*/
+    }
+
+</script>

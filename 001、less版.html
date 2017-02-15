@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="reset.min.css"/>
+    <link rel="stylesheet/less" href="index.less"/><!--引入的less文件-->
+</head>
+<body>
+<div class="header">
+    <div class="wrap">
+        <div class="nav">
+            <h1><a href="###"><img src="../img/logo.png" alt=""/></a></h1>
+            <ul>
+                <li><a href="###"> 首页<span></span></a></li>
+                <li><a href="###"> 下载<span></span></a></li>
+                <li><a href="###"> 论坛 <span></span></a></li>
+                <li><a href="###"> International <span></span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="banner">
+
+    </div>
+</div>
+
+<script>
+    var less={
+        env: "development",/*设置运行的环境(开发环境)*/
+        poll:1000/*在监视模式下，两次请求间隔的时间(ms)*/
+    }
+</script>
+
+</body>
+</html>
+<script src="less-2.5.3.min.js"></script><!--引入这个文件之前要先定义less-->
+<!--设置监视模式-->
+<script>
+    less.watch();//监视less文件，一旦发生改变就自动刷新
+</script>
